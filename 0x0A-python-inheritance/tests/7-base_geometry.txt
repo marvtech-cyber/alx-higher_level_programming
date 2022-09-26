@@ -1,37 +1,181 @@
-The ''7-base_geometry'' module
-==============================
+Test cases for ``BaseGeometry`` class
 
-Using BaseGeometry
--------------------
 
-Importing class BaseGeometry from module 7-base_geometry:
+
+============================
+
+
+
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-Area:
------
-    >>> bg = BaseGeometry()
-    >>> bg.area()
-    Traceback (most recent call last):
-    ...
-    Exception: area() is not implemented
 
-Passing an integer:
-----------------------
+
     >>> bg = BaseGeometry()
+
+
+
     >>> bg.integer_validator("my_int", 12)
 
-Passing a non integer:
-----------------------
-    >>> bg = BaseGeometry()
+   
+
+    >>> bg.integer_validator("width", 89)
+
+
+
     >>> bg.integer_validator("name", "John")
+
     Traceback (most recent call last):
-    ...
+
+        ...
+
     TypeError: name must be an integer
 
-Passing a negative integer:
----------------------------
-    >>> bg = BaseGeometry()
-    >>> bg.integer_validator("width", -11)
+
+
+    >>> bg.integer_validator("perimeter", [4, 6])
+
     Traceback (most recent call last):
-    ...
-    ValueError: width must be greater than 0
+
+        ...
+
+    TypeError: perimeter must be an integer
+
+
+
+    >>> bg.integer_validator("perimeter", None)
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: perimeter must be an integer
+
+
+
+    >>> bg.integer_validator("name", True)
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: name must be an integer
+
+
+
+    >>> bg.integer_validator("name", 6.4)
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: name must be an integer
+
+
+
+    >>> bg.integer_validator("name", {5, 9})
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: name must be an integer
+
+
+
+    >>> bg.integer_validator("perimeter", {'length': 3, 'width': 18})
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: perimeter must be an integer
+
+
+
+    >>> bg.integer_validator("name", (1, 5))
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: name must be an integer
+
+
+
+    >>> bg.integer_validator("height", -2)
+
+    Traceback (most recent call last):
+
+        ...
+
+    ValueError: height must be greater than 0
+
+
+
+    >>> bg.integer_validator("age", 0)
+
+    Traceback (most recent call last):
+
+        ...
+
+    ValueError: age must be greater than 0
+
+
+
+    >>> bg.integer_validator("height")
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+
+
+    >>> bg.integer_validator()
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+
+    >>> bg.area()
+
+    Traceback (most recent call last):
+
+        ...
+
+    Exception: area() is not implemented
+
+
+
+    >>> bg.area(10)
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: area() takes 1 positional argument but 2 were given
+
+
+
+    >>> bg.area(8, 2)
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: area() takes 1 positional argument but 3 were given
+
+
+
+    >>> bg.integer_validator("length", 89, 32)
+
+    Traceback (most recent call last):
+
+        ...
+
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
