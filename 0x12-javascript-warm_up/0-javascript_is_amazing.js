@@ -1,7 +1,5 @@
 #!/usr/bin/node
-/*
-script that prints “JavaScript is amazing”
-*/
+// Print string “Javascript is amazing”
 
-const myVar = 'JavaScript is amazing'; // create a constant var
+const myVar = 'JavaScript is amazing';
 console.log(myVar);
